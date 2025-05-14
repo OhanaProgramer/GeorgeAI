@@ -14,6 +14,8 @@ Its mission is to serve as a calm, intelligent presence across your daily system
 - Theme-driven daily prompts
 - Human-readable → AI-readable file structure
 - Command-line interface for simplicity
+- Dynamic dataset engine: tasks, logs, and reflections linked contextually
+- Future-ready: context summarization, insight generation, and command inference
 
 ---
 
@@ -54,3 +56,12 @@ Its mission is to serve as a calm, intelligent presence across your daily system
 ---
 
 > George will grow with you, from a file-based guide to a lifelong neural companion.
+
+
+-------- Future Development Vision ---------------
+Ver | Option                         | Description                                      | Difficulty |   Notes                            |
+    | ------------------------------ | ------------------------------------------------ | ---------- | ----------------------------------- |
+  0 | 🖥️ Terminal (Rich or Textual)  | Pretty console UI with checkboxes, color, panels | Low        | Easy, fast to integrate             |
+  1 | 🪟 GUI (Tkinter or PyQt)       | Desktop window with buttons and progress bars    | Medium     | Great for offline use               |
+  2 | 🌐 Web (Flask + HTML)          | Open in browser, interactive, mobile friendly    | High       | Requires hosting or localhost setup |
+  3 | 📱 Future Mobile App           | Fully custom app on iOS/macOS                    | Later      | Dream tier; powered by same backend |

@@ -1,0 +1,155 @@
+[
+  {
+    "task": "Sketch layout for visual task UI",
+    "completed": true,
+    "category": "GeorgeAI",
+    "priority": null,
+    "notes": "",
+    "time_block": "",
+    "module": "GeorgeAI"
+  },
+  {
+    "task": "Define module loader logic based on [x] flags in SOD",
+    "completed": false,
+    "category": "GeorgeAI",
+    "priority": null,
+    "notes": "",
+    "time_block": "",
+    "module": "GeorgeAI"
+  },
+  {
+    "task": "Outline generate_sod_from_eod() function",
+    "completed": false,
+    "category": "GeorgeAI",
+    "priority": null,
+    "notes": "",
+    "time_block": "",
+    "module": "GeorgeAI"
+  },
+  {
+    "task": "Create Markdown parser for EOD summary input",
+    "completed": false,
+    "category": "GeorgeAI",
+    "priority": null,
+    "notes": "",
+    "time_block": "",
+    "module": "GeorgeAI"
+  },
+  {
+    "task": "Research Banff lodging options (summer friendly)",
+    "completed": false,
+    "category": "Travel",
+    "priority": null,
+    "notes": "",
+    "time_block": "",
+    "module": "Travel"
+  },
+  {
+    "task": "Check rail or flight options Paris to Norway",
+    "completed": false,
+    "category": "Travel",
+    "priority": null,
+    "notes": "",
+    "time_block": "",
+    "module": "Travel"
+  },
+  {
+    "task": "Update 2025–2027 travel master plan",
+    "completed": false,
+    "category": "Travel",
+    "priority": null,
+    "notes": "",
+    "time_block": "",
+    "module": "Travel"
+  },
+  {
+    "task": "Research fall travel options for Portugal",
+    "completed": false,
+    "category": "Travel",
+    "priority": null,
+    "notes": "",
+    "time_block": "",
+    "module": "Travel"
+  },
+  {
+    "task": "Log body awareness in 2025_05_14_health.md",
+    "completed": false,
+    "category": "Health",
+    "priority": null,
+    "notes": "",
+    "time_block": "",
+    "module": "Health"
+  },
+  {
+    "task": "Write posture and shoulder tension notes",
+    "completed": false,
+    "category": "Health",
+    "priority": null,
+    "notes": "",
+    "time_block": "",
+    "module": "Health"
+  },
+  {
+    "task": "Stretch again mid-afternoon",
+    "completed": false,
+    "category": "Health",
+    "priority": null,
+    "notes": "",
+    "time_block": "",
+    "module": "Health"
+  },
+  {
+    "task": "Hydration check-in (3L goal)",
+    "completed": false,
+    "category": "Health",
+    "priority": null,
+    "notes": "",
+    "time_block": "",
+    "module": "Health"
+  },
+  {
+    "task": "Grocery run and city walk between 3–5PM",
+    "completed": false,
+    "category": "Free Time",
+    "priority": null,
+    "notes": "",
+    "time_block": "",
+    "module": "Free Time"
+  },
+  {
+    "task": "Coffee shop journal prompt: 'What would I never notice if I rushed?'",
+    "completed": false,
+    "category": "Free Time",
+    "priority": null,
+    "notes": "",
+    "time_block": "",
+    "module": "Free Time"
+  },
+  {
+    "task": "Plan medical trip & visit Lisa",
+    "completed": false,
+    "category": "Things2",
+    "priority": null,
+    "notes": "",
+    "time_block": "",
+    "module": "Things2"
+  },
+  {
+    "task": "Set nightly iPhone battery shortcut + rebroadcast",
+    "completed": false,
+    "category": "Things2",
+    "priority": null,
+    "notes": "",
+    "time_block": "",
+    "module": "Things2"
+  },
+  {
+    "task": "Call VA for dental referral (PST 8AM)",
+    "completed": false,
+    "category": "Things2",
+    "priority": null,
+    "notes": "",
+    "time_block": "",
+    "module": "Things2"
+  }
+]
