@@ -1,0 +1,48 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.swp
+
+# Virtual Environment
+venvSuccess/
+venv/
+env/
+*.egg-info/
+
+# Distribution / Packaging
+dist/
+build/
+*.egg
+
+# IDE / Editor
+.idea/
+.vscode/
+*.iml
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+
+# Logs and temporary files
+*.log
+*.bak
+*.tmp
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Sensitive or private data
+*.env
+*.secret
+
+# Python bytecode files
+*.pyc
+*.pyo
+
+# Python packages
+*.tar.gz
+*.whl
+*.zip
