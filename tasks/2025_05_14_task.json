@@ -54,7 +54,7 @@
     "module": "Travel"
   },
   {
-    "task": "Update 2025–2027 travel master plan",
+    "task": "Update 2025\u20132027 travel master plan",
     "completed": false,
     "category": "Travel",
     "priority": null,
@@ -108,7 +108,7 @@
     "module": "Health"
   },
   {
-    "task": "Grocery run and city walk between 3–5PM",
+    "task": "Grocery run and city walk between 3\u20135PM",
     "completed": false,
     "category": "Free Time",
     "priority": null,
@@ -151,5 +151,23 @@
     "notes": "",
     "time_block": "",
     "module": "Things2"
+  },
+  {
+    "task": "Implement dynamic task summary generator (from EOD)",
+    "completed": false,
+    "category": "GeorgeAI",
+    "priority": "high",
+    "notes": "Build engine to parse EOD markdown and auto-generate task list for next day",
+    "time_block": "",
+    "module": "GeorgeAI"
+  },
+  {
+    "task": "Review GeorgeAI architecture and roadmap (no dev)",
+    "completed": false,
+    "category": "GeorgeAI",
+    "priority": "medium",
+    "notes": "Walkthrough existing modules, clarify next builds, focus on planning not coding",
+    "time_block": "AM",
+    "module": "GeorgeAI"
   }
 ]
