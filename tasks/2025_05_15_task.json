@@ -1,0 +1,38 @@
+[
+  {
+    "task": "Review GeorgeAI architecture and roadmap (no dev)",
+    "completed": true,
+    "category": "GeorgeAI",
+    "priority": "medium",
+    "notes": "Walkthrough existing modules, clarify next builds, focus on planning not coding",
+    "time_block": "AM",
+    "module": "GeorgeAI"
+  },
+  {
+    "task": "Review ExoPlanet project so far \u2013 revisit ideas and system design",
+    "completed": true,
+    "category": "ExoPlanet",
+    "priority": "medium",
+    "notes": "Mentally walk through current systems, clarify what\u2019s done and what\u2019s next",
+    "time_block": "PM",
+    "module": "ExoPlanet"
+  },
+  {
+    "task": "Travel: Cancel Oslo; send legal docs to host, confirm 2026 plans",
+    "completed": true,
+    "category": "Travel",
+    "priority": "high",
+    "notes": "Close loop on Oslo and host comms. Important for future plans.",
+    "time_block": "Late AM",
+    "module": "Travel"
+  },
+  {
+    "task": "Begin Health bodywork tracking project",
+    "completed": true,
+    "category": "Health",
+    "priority": "high",
+    "notes": "First day of knee protocol. Gentle bodywork and log hydration in MyFitnessPal.",
+    "time_block": "Any",
+    "module": "Health"
+  }
+]

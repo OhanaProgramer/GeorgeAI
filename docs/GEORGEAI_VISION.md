@@ -15,7 +15,14 @@ Its mission is to serve as a calm, intelligent presence across your daily system
 - Human-readable → AI-readable file structure
 - Command-line interface for simplicity
 - Dynamic dataset engine: tasks, logs, and reflections linked contextually
-- Future-ready: context summarization, insight generation, and command inference
+- Future-ready: context summarization, insight generation, and command inferenc
+  
+### 🧠 Amplification: Local Intelligence Potential
+- Optimized for MacBook Pro (Apple Silicon): 16-core Neural Engine supports future local ML acceleration
+- Explores Metal Performance Shaders (MPS) and CoreML for efficient transformer-based local inference
+- System capable of embedding generation, sentiment classification, and semantic search entirely offline
+- Focus on reclaiming advanced language tasks locally over time through incremental learning
+  
 
 ---
 
