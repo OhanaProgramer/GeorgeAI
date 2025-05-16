@@ -18,6 +18,7 @@ from utils.helper import get_today_theme, load_daily_prompt
 from core.task_manager import init_task_folder, prompt_for_tasks, save_tasks
 from core.display import display_tasks_for_today
 from utils.helper import get_active_modules
+from core.task_updater import update_task_completion
 # ----- Constants ----
 
 # Load OpenAI API key
@@ -74,6 +75,33 @@ def main():
 
     while True:
         user_input = input("You: ")
+        if user_input.lower().startswith("check"):
+            try:
+                indices = list(map(int, user_input.strip().split()[1:]))
+                updated = update_task_completion(indices)
+                if updated:
+                    print(f"✅ Tasks marked complete: {updated}")
+                else:
+                    print("⚠️ No tasks updated.")
+                print("\n🔁 Updated task list:\n")
+                display_tasks_for_today()
+                continue  # Skip GPT fallback
+            except ValueError:
+                print("❌ Invalid format. Use: check 1 2 3")
+                continue
+        if user_input.lower().strip() == "menu":
+            print("""\
+George Menu:
+1. S - Start of Day (🟡 planned)
+2. I - IntraDay (🟡 planned)
+3. E - End of Day (🟡 planned)
+4. T - Task Menu (🟡 planned)
+5. DS - Display SOD (🔲 not yet implemented)
+6. DE - Display EOD (🔲 not yet implemented)
+7. AI - Ask George (✅ you’re using it now)
+8. SU - Summarizer (🟡 planned)
+""")
+            continue
         if user_input.lower() in ["exit", "quit"]:
             print("👋 Goodbye from George.")
             break

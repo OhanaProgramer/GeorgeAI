@@ -19,8 +19,8 @@ console = Console(theme=custom_theme)
 
 def display_tasks_for_today():
     """
-    Loads and displays today's task list grouped by category.
-    Assumes files named YYYY_MM_DD_task.json.
+    Loads and displays today's task list grouped by category with index numbers.
+    Returns a flat indexed list of tasks with metadata for interaction.
     """
     today_str = datetime.today().strftime("%Y_%m_%d")
     base_path = Path(__file__).resolve().parent.parent
@@ -43,13 +43,23 @@ def display_tasks_for_today():
     # Display title
     console.print(Panel.fit(f"\U0001F4C5 Tasks for {today_str.replace('_', '-')}", style="title"))
 
-    # Display grouped tasks
+    flat_index = 1
+    indexed_task_list = []
+
     for category, task_list in grouped_tasks.items():
         console.print(f"\n[{category}]", style="category")
         for task in task_list:
             checkbox = "[x]" if task.get("completed") else "[ ]"
             style = "complete" if task.get("completed") else "incomplete"
-            console.print(f"{checkbox} {task['task']}", style=style)
+            console.print(f"[{flat_index}] {checkbox} {task['task']}", style=style)
+            indexed_task_list.append({
+                "index": flat_index,
+                "task": task,
+                "category": category
+            })
+            flat_index += 1
+
+    return indexed_task_list
 
 if __name__ == "__main__":
     display_tasks_for_today()
