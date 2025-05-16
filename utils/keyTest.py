@@ -1,14 +1,22 @@
+from dotenv import load_dotenv
+import os
 import openai
 
-# Replace with your actual key or use os.getenv("OPENAI_API_KEY")
-client = openai.OpenAI(api_key="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")
+load_dotenv()
+api_key = os.getenv("OPENAI_API_KEY")
+client = openai.OpenAI(api_key=api_key)
 
-try:
-    models = client.models.list()
-    print("✅ API key is valid. You have access to:")
-    for model in models.data[:5]:  # show just a few
-        print("-", model.id)
-except openai.AuthenticationError as e:
-    print("❌ Invalid API key.")
-except Exception as e:
-    print("⚠️ Something else went wrong:", e)
+def ask_gpt(prompt: str) -> str:
+    try:
+        response = client.chat.completions.create(
+            model="gpt-4o",
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=500
+        )
+        return response.choices[0].message.content
+    except openai.AuthenticationError:
+        print("❌ API Authentication failed. Please check your API key.")
+        raise
+    except Exception as e:
+        print("⚠️ Unexpected error while calling GPT:", e)
+        raise

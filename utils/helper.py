@@ -1,5 +1,3 @@
-# utils/helper.py
-
 from datetime import date
 from datetime import datetime
 import importlib
@@ -21,7 +19,7 @@ theme_map = {
 def get_sod_file_path():
     today_str = datetime.today().strftime("%Y_%m_%d")
     base_path = Path(__file__).resolve().parent.parent
-    sod_file = base_path / "reflections" / f"{today_str}_SOD.md"
+    sod_file = base_path / "reflections/SOD" / f"{today_str}_SOD.md"
     return sod_file
 
 def get_today_theme():
@@ -63,7 +61,3 @@ def get_active_modules():
                 active.append(module)
 
     return active
-
-if __name__ == "__main__":
-    modules = get_active_modules()
-    print("Active modules today:", modules)

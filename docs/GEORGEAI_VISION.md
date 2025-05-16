@@ -1,7 +1,14 @@
 # 🤖 GeorgeAI – Vision & Architecture (Living Document)
 
 ## 🌟 Purpose
-GeorgeAI is a lifelong assistant: reflective, helpful, and modular. It supports mental clarity, creative growth, and purposeful living.
+GeorgeAI is a lifelong assistant: reflective, helpful, and modular. It supports mental clarity, creative growth, and purposeful living. "Daily Operating System for the mind" 
+
+- Turing daily planning into a computational journaling system 
+- Making George an intentional AI assistant rather than reactive chatbot
+- Congnitive Companion + Daily Ops System - Mental Health Aid Focus by:
+  - Externalizing menory
+  - Reducing decision fatigue
+  - Providing calm, structred reenty points
 
 Its mission is to serve as a calm, intelligent presence across your daily systems—from task planning and journaling to deep analysis and long-term memory.
 
@@ -66,9 +73,13 @@ Its mission is to serve as a calm, intelligent presence across your daily system
 
 
 -------- Future Development Vision ---------------
-Ver | Option                         | Description                                      | Difficulty |   Notes                            |
-    | ------------------------------ | ------------------------------------------------ | ---------- | ----------------------------------- |
-  0 | 🖥️ Terminal (Rich or Textual)  | Pretty console UI with checkboxes, color, panels | Low        | Easy, fast to integrate             |
-  1 | 🪟 GUI (Tkinter or PyQt)       | Desktop window with buttons and progress bars    | Medium     | Great for offline use               |
-  2 | 🌐 Web (Flask + HTML)          | Open in browser, interactive, mobile friendly    | High       | Requires hosting or localhost setup |
-  3 | 📱 Future Mobile App           | Fully custom app on iOS/macOS                    | Later      | Dream tier; powered by same backend |
+Ver | Option                         | Description                           | Difficulty   | Notes
+| ------------------------------ | ------------------------------------------- | ---------- | --------
+0 | 🖥️ Terminal (Rich or Textual)| Pretty console UI with checkboxes,  | Low        | Easy  | fast to integr
+  | fast to integrate            | color, pannels 
+1 | 🪟 GUI (Tkinter or PyQt)       | Desktop window with buttons and   | Medium     | Great for 
+  | offline use                    | progress bars
+2 | 🌐 Web (Flask + HTML)          | Open in browser, interactive, mobile friendly    | High       | Requires 
+    hosting or localhost setup |
+3 | 📱 Future Mobile App           | Fully custom app on iOS/macOS                    | Later      | Dream 
+    tier; powered by same backend |

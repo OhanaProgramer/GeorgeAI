@@ -23,7 +23,9 @@ def display_tasks_for_today():
     Assumes files named YYYY_MM_DD_task.json.
     """
     today_str = datetime.today().strftime("%Y_%m_%d")
-    task_file = Path(__file__).resolve().parent.parent / "tasks" / f"{today_str}_task.json"
+    base_path = Path(__file__).resolve().parent.parent
+    task_file = base_path / "tasks" / f"{today_str}_task.json"
+ 
 
     if not task_file.exists():
         console.print(f"No task file found for today: {task_file}", style="bold red")

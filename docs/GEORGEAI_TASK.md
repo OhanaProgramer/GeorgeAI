@@ -1,10 +1,4 @@
-from pathlib import Path
-
-# Create the tasks markdown file
-tasks_md = Path("GeorgeAI/docs/GEORGEAI_TASKS.md")
-tasks_md.parent.mkdir(parents=True, exist_ok=True)
-
-content = """# ✅ GeorgeAI – Core Architecture Task Tracker
+# ✅ GeorgeAI – Core Architecture Task Tracker
 
 This file documents completed and outstanding tasks for GeorgeAI's system engine, daily planner, and assistant logic.
 

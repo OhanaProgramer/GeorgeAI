@@ -11,6 +11,7 @@ import openai
 import os
 from datetime import date
 from dotenv import load_dotenv
+from core.module_log_generator import generate_module_logs
 
 # ----- Imports Local ----
 from utils.helper import get_today_theme, load_daily_prompt
@@ -37,6 +38,16 @@ def main():
     weekday = date.today().strftime("%A")
     theme, _ = get_today_theme()
     modules = get_active_modules()
+
+    # Generate module logs
+    generated_logs = generate_module_logs()
+    if generated_logs:
+        print("📄 Created module logs:")
+        for log in generated_logs:
+            print(" -", log)
+    else:
+        print("✅ All module logs already exist.")
+
 
     print(f"📅 Today is {weekday} – Theme: {theme}")
     print(f"📋 Your active modules: {', '.join(modules)}")
