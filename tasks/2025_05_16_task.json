@@ -10,10 +10,10 @@
   },
   {
     "task": "Sketch ExoPlanet player interaction flow",
-    "completed": false,
+    "completed": true,
     "category": "ExoPlanet",
     "priority": "medium",
-    "notes": "Start with system click \u2192 state load \u2192 player control logic",
+    "notes": "Start with system click",
     "time_block": "Afternoon",
     "module": "ExoPlanet"
   },
@@ -28,7 +28,7 @@
   },
   {
     "task": "Stretch routine (10\u201315 min)",
-    "completed": false,
+    "completed": true,
     "category": "Health",
     "priority": "medium",
     "notes": "Gentle knee and hip stretches",
@@ -43,14 +43,6 @@
     "notes": "Write rules and desired workflows",
     "time_block": "Evening",
     "module": "Email"
-  },
-  {
-    "task": "George Love AI",
-    "category": "GeorgeAI",
-    "completed": false,
-    "priority": "low",
-    "time_block": "Evening",
-    "notes": "This rocks",
-    "module": "GeorgeAI"
   }
+ 
 ]

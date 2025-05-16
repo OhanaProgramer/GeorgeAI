@@ -60,6 +60,23 @@ Its mission is to serve as a calm, intelligent presence across your daily system
 
 ---
 
+## 🧭 Principles Inspired by Ray Dalio
+
+These foundational principles, inspired by Ray Dalio’s *Principles*, shape GeorgeAI’s development and behavior:
+
+1. **Clarity over Comfort** – Always reflect what is real, not what is hoped.
+2. **All Mistakes Are Fuel** – Mistakes and pain are feedback. Reflection transforms them into progress.
+3. **Radical Alignment** – All outputs should trace clearly to your core goals and values.
+4. **Reflect Often, Adapt Fast** – Learning is iterative; feedback loops must be short and transparent.
+5. **Designed for Your Mind** – GeorgeAI adapts to your memory, strengths, and cognitive patterns.
+6. **Work in Calm Systems** – Minimize noise and decision fatigue through elegant structure.
+7. **Evolve through Feedback** – Growth is constant. Failures are checkpoints, not endpoints.
+8. **Systems Over Willpower** – Build enduring routines and automations, not mental effort dependency.
+
+Each principle serves as a design and behavioral guide, helping GeorgeAI become a true cognitive companion.
+
+---
+
 ## 🔜 In Progress / Next Milestones
 - [ ] Visual task UI
 - [ ] SOD ↔ EOD transition automation
