@@ -15,7 +15,12 @@ from core.module_log_generator import generate_module_logs
 
 # ----- Imports Local ----
 from utils.helper import get_today_theme, load_daily_prompt
-from core.task_manager import init_task_folder, prompt_for_tasks, save_tasks
+from core.task_manager import (
+    init_task_folder,
+    prompt_for_tasks,
+    load_or_create_task_file,
+    save_tasks
+)
 from core.display import display_tasks_for_today
 from utils.helper import get_active_modules
 from core.task_updater import update_task_completion
@@ -101,6 +106,157 @@ George Menu:
 7. AI - Ask George (✅ you’re using it now)
 8. SU - Summarizer (🟡 planned)
 """)
+            continue
+        if user_input.strip().lower() == "t":
+            print("""\
+🛠 Task Menu:
+1. add – Add a new task
+2. edit – Edit an existing task
+3. delete – Remove a task
+
+(Commands coming soon. For now, just type 'check #' to mark tasks complete.)
+""")
+            continue
+
+        print("\n📋 Current Tasks:")
+        display_tasks_for_today()
+
+        if user_input.strip().lower() == "add":
+            new_task = input("Enter the task description: ").strip()
+            
+            # Show category options
+            categories = ["GeorgeAI", "ExoPlanet", "Health", "Email", "Other"]
+            print("Choose a category:")
+            for idx, cat in enumerate(categories, 1):
+                print(f"{idx}. {cat}")
+            try:
+                cat_choice = int(input("Enter number: ").strip())
+                new_category = categories[cat_choice - 1]
+            except:
+                print("❌ Invalid input. Defaulting to 'Other'")
+                new_category = "Other"
+
+            # Priority options
+            priority_options = ["low", "medium", "high"]
+            print("Choose priority:")
+            for idx, p in enumerate(priority_options, 1):
+                print(f"{idx}. {p}")
+            try:
+                p_choice = int(input("Enter number: ").strip())
+                priority = priority_options[p_choice - 1]
+            except:
+                print("❌ Invalid input. Defaulting to 'medium'")
+                priority = "medium"
+
+            # Time block options
+            time_block_options = ["Morning", "Afternoon", "Evening", "Any"]
+            print("Choose time block:")
+            for idx, tb in enumerate(time_block_options, 1):
+                print(f"{idx}. {tb}")
+            try:
+                tb_choice = int(input("Enter number: ").strip())
+                time_block = time_block_options[tb_choice - 1]
+            except:
+                print("❌ Invalid input. Defaulting to 'Any'")
+                time_block = "Any"
+
+            # Notes
+            notes = input("Any notes? ").strip()
+
+            today_str = date.today().strftime("%Y_%m_%d")
+            task_file = load_or_create_task_file(today_str)
+            task_file.append({
+                "task": new_task,
+                "category": new_category,
+                "completed": False,
+                "priority": priority,
+                "time_block": time_block,
+                "notes": notes,
+                "module": new_category
+            })
+            save_tasks(task_file)
+            print(f"✅ Task added: [{new_category}] {new_task} ({priority}, {time_block})")
+
+            print("\n🔁 Updated Tasks:")
+            display_tasks_for_today()
+            continue
+        elif user_input.strip().lower() == "edit":
+            today_str = date.today().strftime("%Y_%m_%d")
+            task_list = load_or_create_task_file(today_str)
+            if not task_list:
+                print("⚠️ No tasks found to edit.")
+                continue
+
+            print("Which task number would you like to edit?")
+            for i, t in enumerate(task_list, 1):
+                print(f"[{i}] {t['task']} ({t.get('category', 'Uncategorized')})")
+
+            try:
+                choice = int(input("Enter number: ").strip())
+                if 1 <= choice <= len(task_list):
+                    task = task_list[choice - 1]
+                    new_text = input(f"New description (or press Enter to keep: \"{task['task']}\"): ").strip()
+                    if new_text:
+                        task["task"] = new_text
+                    new_notes = input(f"New notes (or press Enter to keep: \"{task.get('notes', '')}\"): ").strip()
+                    if new_notes:
+                        task["notes"] = new_notes
+                    save_tasks(task_list)
+                    print("✅ Task updated.")
+                else:
+                    print("❌ Invalid task number.")
+            except ValueError:
+                print("❌ Invalid input.")
+            continue
+        elif user_input.strip().lower() == "delete":
+            today_str = date.today().strftime("%Y_%m_%d")
+            task_list = load_or_create_task_file(today_str)
+            if not task_list:
+                print("⚠️ No tasks found to delete.")
+                continue
+
+            print("Which task number would you like to delete?")
+            for i, t in enumerate(task_list, 1):
+                print(f"[{i}] {t['task']} ({t.get('category', 'Uncategorized')})")
+
+            try:
+                choice = int(input("Enter number: ").strip())
+                if 1 <= choice <= len(task_list):
+                    deleted_task = task_list.pop(choice - 1)
+                    save_tasks(task_list)
+                    print(f"🗑 Task deleted: {deleted_task['task']}")
+                else:
+                    print("❌ Invalid task number.")
+            except ValueError:
+                print("❌ Invalid input.")
+
+            print("\n🔁 Updated Tasks:")
+            display_tasks_for_today()
+            continue
+        if user_input.strip().lower() == "delete":
+            today_str = date.today().strftime("%Y_%m_%d")
+            task_list = load_or_create_task_file(today_str)
+            if not task_list:
+                print("⚠️ No tasks found to delete.")
+                continue
+
+            print("Which task number would you like to delete?")
+            for i, t in enumerate(task_list, 1):
+                print(f"[{i}] {t['task']} ({t.get('category', 'Uncategorized')})")
+
+            try:
+                choice = int(input("Enter number: ").strip())
+                if 1 <= choice <= len(task_list):
+                    removed_task = task_list.pop(choice - 1)
+                    save_tasks(task_list)
+                    print(f"✅ Task deleted: {removed_task['task']}")
+                else:
+                    print("❌ Invalid task number.")
+            except ValueError:
+                print("❌ Invalid input.")
+
+            print("\n🔁 Updated Tasks:")
+            display_tasks_for_today()
             continue
         if user_input.lower() in ["exit", "quit"]:
             print("👋 Goodbye from George.")
