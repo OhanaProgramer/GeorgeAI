@@ -1,0 +1,29 @@
+[
+    {
+        "task": "Test DS display of SOD",
+        "category": "GeorgeAI",
+        "completed": true,
+        "priority": "medium",
+        "time_block": "Morning",
+        "notes": "Verifying GeorgeAI task view flow",
+        "module": "GeorgeAI"
+    },
+    {
+        "task": "Update NPS volunteer documents",
+        "category": "Admin",
+        "completed": true,
+        "priority": "medium",
+        "time_block": "Afternoon",
+        "notes": "Ensure OF-301a and intro letters are up to date for October applications",
+        "module": "Admin"
+    },
+    {
+        "task": "Design mini ExoPlanet prototype",
+        "category": "ExoPlanet",
+        "completed": false,
+        "priority": "high",
+        "time_block": "Evening",
+        "notes": "Focus on core player movement and interaction loop",
+        "module": "ExoPlanet"
+    }
+]

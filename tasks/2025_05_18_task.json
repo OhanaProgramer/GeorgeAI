@@ -1,0 +1,62 @@
+[
+  {
+    "project": "GeorgeAI",
+    "task": "Finalize v1 voice integration before end of current dev cycle",
+    "category": "GeorgeAI",
+    "completed": true,
+    "priority": "medium",
+    "time_block": "Unscheduled",
+    "notes": "",
+    "module": "GeorgeAI"
+  },
+  {
+    "project": "ExoPlanet",
+    "task": "Continue development of core game loop",
+    "category": "ExoPlanet",
+    "completed": false,
+    "priority": "medium",
+    "time_block": "Unscheduled",
+    "notes": "",
+    "module": "ExoPlanet"
+  },
+  {
+    "project": "Health",
+    "task": "Stretching routine - 10 min morning and evening",
+    "category": "Health",
+    "completed": false,
+    "priority": "medium",
+    "time_block": "Unscheduled",
+    "notes": "",
+    "module": "Health"
+  },
+  {
+    "project": "Travel",
+    "task": "Add stops to Canada road trip: Lake Louise, Jasper, and Kamloops",
+    "category": "Travel",
+    "completed": false,
+    "priority": "medium",
+    "time_block": "Unscheduled",
+    "notes": "",
+    "module": "Travel"
+  },
+  {
+    "project": "GeorgeAI",
+    "task": "Advance core logic structure daily — decision trees, prompt memory, and task state awareness",
+    "category": "GeorgeAI",
+    "completed": true,
+    "priority": "medium",
+    "time_block": "Unscheduled",
+    "notes": "",
+    "module": "GeorgeAI"
+  },
+  {
+    "project": "GeorgeAI",
+    "task": "Sketch first-layer decision logic for task responses (e.g., affirm, delay, reject)",
+    "category": "GeorgeAI",
+    "completed": true,
+    "priority": "medium",
+    "time_block": "Unscheduled",
+    "notes": "",
+    "module": "GeorgeAI"
+  }
+]

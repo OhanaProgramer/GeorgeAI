@@ -7,7 +7,7 @@ __pycache__/
 *.swp
 
 # Virtual Environment
-venvSuccess/
+venvGeorge/
 venv/
 env/
 *.egg-info/

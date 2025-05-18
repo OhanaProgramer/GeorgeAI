@@ -1,3 +1,18 @@
+def display_sod_entry():
+    from utils.george_voice import speak
+    try:
+        display_sod()
+        speak("Here’s your start of day reflection.")
+    except FileNotFoundError:
+        speak("Start of day file not found. Would you like to create one?")
+
+def display_eod_entry():
+    from utils.george_voice import speak
+    try:
+        display_eod()
+        speak("Here’s your end of day summary.")
+    except FileNotFoundError:
+        speak("End of day file not found. You can write a reflection later if you'd like.")
 # george.py
 # George AI - Your Daily Companion
 # This is a simple AI companion that helps you plan your day, reflect on your tasks,
@@ -12,6 +27,10 @@ import os
 from datetime import date
 from dotenv import load_dotenv
 from core.module_log_generator import generate_module_logs
+from core.sod_viewer import display_sod
+from core.eod_viewer import display_eod
+from utils.george_voice import speak_if_summary
+from utils.george_voice import speak
 
 # ----- Imports Local ----
 from utils.helper import get_today_theme, load_daily_prompt
@@ -24,6 +43,7 @@ from core.task_manager import (
 from core.display import display_tasks_for_today
 from utils.helper import get_active_modules
 from core.task_updater import update_task_completion
+from core.startup_checks import run_startup_integrity_check
 # ----- Constants ----
 
 # Load OpenAI API key
@@ -37,8 +57,50 @@ def ask_gpt(prompt):
     )
     return response.choices[0].message.content.strip()
 
+def display_start_of_day():
+    from datetime import date
+    from utils.helper import get_today_theme
+    from utils.george_voice import speak
+
+    weekday = date.today().strftime("%A")
+    theme, _ = get_today_theme()
+    speak(f"Good morning, Jacques. It's {weekday}, and today's theme is {theme}. Let's make it count.")
+    
+    print("\n🌅 Start of Day Summary\n")
+    print(f"📅 Today is {weekday}")
+    print(f"🎯 Theme: {theme}")
+    print("\n📝 Tasks for Today:\n")
+    display_tasks_for_today()
+
+def display_intraday_view():
+    from utils.george_voice import speak
+    speak("Here’s your current progress update.")
+    print("\n📍 IntraDay Check-In\n")
+    display_tasks_for_today()
+
+def display_end_of_day():
+    from utils.george_voice import speak
+    speak("Let’s wrap up your day with a final reflection and review.")
+    print("\n🌙 End of Day Summary\n")
+    display_eod()
+
+def display_task_menu():
+    from utils.george_voice import speak
+    speak("Here's your task management menu.")
+    print("""\
+🧩 Task Menu:
+1. add – Add a new task
+2. edit – Edit an existing task
+3. delete – Remove a task
+4. check – Mark task(s) complete by number
+
+(Type 'check #' directly, e.g., 'check 1 2')
+""")
+
 def main():
     print("🤖 George AI v1 – Your Daily Companion\n")
+    speak_if_summary("greeting")
+    run_startup_integrity_check()
 
     # === Morning Setup ===
     weekday = date.today().strftime("%A")
@@ -58,21 +120,16 @@ def main():
     print(f"📅 Today is {weekday} – Theme: {theme}")
     print(f"📋 Your active modules: {', '.join(modules)}")
 
-    response = input("Would you like to add or change anything? (y/n): ").strip().lower()
-    if response == "y":
-        print("(This feature will allow SOD edits or additions – coming soon.)")
+    # Clear screen before launching interactive menu
+    os.system("cls" if os.name == "nt" else "clear")
+
 
     # === Task Display ===
     print("\n🧠 Loading today's task view...\n")
     display_tasks_for_today()
 
-    # === Task Planning Option ===
-    start_today = input("\nWould you like to plan your day from scratch? (y/n): ").strip().lower()
-    if start_today == "y":
-        init_task_folder()
-        tasks = prompt_for_tasks()
-        save_tasks(tasks)
-        print("\n🧠 George is ready when you are.\n")
+    # === Menu-first Entry ===
+    print("\n🧠 What would you like to do?\n(Type 'menu' to see available options.)\n")
 
     # === Chat Loop ===
     starter_prompt = load_daily_prompt(modules)
@@ -80,6 +137,15 @@ def main():
 
     while True:
         user_input = input("You: ")
+        if user_input.strip().lower() == "ds":
+            display_sod_entry()
+            continue
+        if user_input.strip().lower() == "de":
+            display_eod_entry()
+            continue
+        if user_input.strip().lower() == "s":
+            display_start_of_day()
+            continue
         if user_input.lower().startswith("check"):
             try:
                 indices = list(map(int, user_input.strip().split()[1:]))
@@ -97,25 +163,24 @@ def main():
         if user_input.lower().strip() == "menu":
             print("""\
 George Menu:
-1. S - Start of Day (🟡 planned)
-2. I - IntraDay (🟡 planned)
-3. E - End of Day (🟡 planned)
-4. T - Task Menu (🟡 planned)
-5. DS - Display SOD (🔲 not yet implemented)
-6. DE - Display EOD (🔲 not yet implemented)
-7. AI - Ask George (✅ you’re using it now)
-8. SU - Summarizer (🟡 planned)
+1. S  - Start of Day (✅ complete)
+2. I  - IntraDay     (✅ complete)
+3. E  - End of Day   (✅ complete)
+4. T  - Task Menu    (✅ complete)
+5. DS - Display SOD  (✅ complete)
+6. DE - Display EOD  (✅ complete)
+7. AI - Ask George   (✅ working)
+8. SU - Summarizer   (🟡 planned)
 """)
             continue
+        if user_input.strip().lower() == "i":
+            display_intraday_view()
+            continue
+        if user_input.strip().lower() == "e":
+            display_end_of_day()
+            continue
         if user_input.strip().lower() == "t":
-            print("""\
-🛠 Task Menu:
-1. add – Add a new task
-2. edit – Edit an existing task
-3. delete – Remove a task
-
-(Commands coming soon. For now, just type 'check #' to mark tasks complete.)
-""")
+            display_task_menu()
             continue
 
         print("\n📋 Current Tasks:")
@@ -225,31 +290,6 @@ George Menu:
                     deleted_task = task_list.pop(choice - 1)
                     save_tasks(task_list)
                     print(f"🗑 Task deleted: {deleted_task['task']}")
-                else:
-                    print("❌ Invalid task number.")
-            except ValueError:
-                print("❌ Invalid input.")
-
-            print("\n🔁 Updated Tasks:")
-            display_tasks_for_today()
-            continue
-        if user_input.strip().lower() == "delete":
-            today_str = date.today().strftime("%Y_%m_%d")
-            task_list = load_or_create_task_file(today_str)
-            if not task_list:
-                print("⚠️ No tasks found to delete.")
-                continue
-
-            print("Which task number would you like to delete?")
-            for i, t in enumerate(task_list, 1):
-                print(f"[{i}] {t['task']} ({t.get('category', 'Uncategorized')})")
-
-            try:
-                choice = int(input("Enter number: ").strip())
-                if 1 <= choice <= len(task_list):
-                    removed_task = task_list.pop(choice - 1)
-                    save_tasks(task_list)
-                    print(f"✅ Task deleted: {removed_task['task']}")
                 else:
                     print("❌ Invalid task number.")
             except ValueError:
