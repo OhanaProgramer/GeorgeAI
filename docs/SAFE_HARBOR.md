@@ -1,7 +1,7 @@
 # 🛟 Project Safe Harbor – Purpose-Driven Service
 
 ## 🌟 Mission
-Safe Harbor is a humanitarian mission to **use your resources, teaching skills, and presence** to offer safety, guidance, and stability to others—especially in vulnerable communities.
+Safe Harbor is a humanitarian mission to **use ones resources, teaching skills, and presence** to offer safety, guidance, and stability to others—especially in vulnerable communities.
 
 Initial focus: Teaching **English + basic computer skills**. Longer-term: community-based safe housing, guidance, and support.
 
